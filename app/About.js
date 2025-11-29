@@ -26,7 +26,7 @@ export default function About() {
           elevation: 5, // Android shadow
         }}
       >
-        <Text
+        <Box><Text
           style={{
             fontSize: 24,
             fontWeight: "bold",
@@ -35,7 +35,7 @@ export default function About() {
           }}
         >
           About This App
-        </Text>
+        </Text></Box>
 
         <Text style={{ fontSize: 18, marginBottom: 10 }}>
           <Text style={{ fontWeight: "bold" }}>Name:</Text> Adel Alhajhussein

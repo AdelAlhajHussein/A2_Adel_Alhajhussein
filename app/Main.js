@@ -83,7 +83,14 @@ export default function Main() {
   };
 
   return (
-    <View style={{ flex: 1, padding: 20, justifyContent: "center" }}>
+    <View
+    style={{
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",   // <-- Centers horizontally
+    }}
+>
       <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>
         Currency Converter
       </Text>

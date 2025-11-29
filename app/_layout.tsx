@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
+import { LinearGradient } from 'expo-linear-gradient';
 import { Link, Stack, usePathname } from "expo-router";
 import { Text, View } from "react-native";
 

@@ -2,10 +2,10 @@ import { useState } from "react";
 import {
   ActivityIndicator,
   Text,
-  TextInput,
   TouchableOpacity,
   View
 } from "react-native";
+import LabeledInput from "../components/LabeledInput";
 
 export default function Main() {
   const [baseCurrency, setBaseCurrency] = useState("CAD");
@@ -61,10 +61,10 @@ export default function Main() {
 
       const data = await response.json();
 
-      // If the currency is not included in free API:
+      // Currency not supported in free plan
       if (!data.data || data.data[targetCurrency] === undefined) {
         setError(
-          `The currency "${targetCurrency}" is NOT supported in the FreeCurrencyAPI free plan. Please try CAD, USD, EUR, GBP, AUD, etc.`
+          `The currency "${targetCurrency}" is NOT supported in the FreeCurrencyAPI free plan. Try CAD, USD, EUR, GBP, AUD, etc.`
         );
         setLoading(false);
         return;
@@ -84,66 +84,50 @@ export default function Main() {
 
   return (
     <View
-  style={{
-    width: "100%",
-    maxWidth: 500,
-    paddingHorizontal: 10,
-  }}
->
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20,textAlign: "center" }}>
+      style={{
+        width: "100%",
+        maxWidth: 500,
+        padding: 20,
+        alignSelf: "center",
+      }}
+    >
+      {/* Title */}
+      <Text
+        style={{
+          fontSize: 28,
+          fontWeight: "bold",
+          textAlign: "center",
+          marginBottom: 25,
+        }}
+      >
         Currency Converter
       </Text>
 
+      {/* Error Message */}
       {error ? (
-        <Text style={{ color: "red", marginBottom: 20, fontSize: 16 }}>
+        <Text style={{ color: "red", marginBottom: 20, fontSize: 16, textAlign: "center" }}>
           {error}
         </Text>
       ) : null}
 
-      {/* Base Currency */}
-      <Text>Base Currency (e.g., CAD):</Text>
-      <TextInput
+      {/* Reusable Inputs */}
+      <LabeledInput
+        label="Base Currency (e.g., CAD):"
         value={baseCurrency}
-        onChangeText={setBaseCurrency}
-        style={{
-          borderWidth: 1,
-          padding: 12,
-          marginBottom: 16,
-          borderRadius: 8,
-          borderColor: "#ccc",
-          backgroundColor: "#fff"
-        }}
+        onChangeText={(v) => setBaseCurrency(v.toUpperCase())}
       />
 
-      {/* Target Currency */}
-      <Text>Target Currency (e.g., USD):</Text>
-      <TextInput
+      <LabeledInput
+        label="Target Currency (e.g., USD):"
         value={targetCurrency}
-        onChangeText={setTargetCurrency}
-        style={{
-          borderWidth: 1,
-          padding: 12,
-          marginBottom: 16,
-          borderRadius: 8,
-          borderColor: "#ccc",
-          backgroundColor: "#fff"
-        }}
+        onChangeText={(v) => setTargetCurrency(v.toUpperCase())}
       />
 
-      {/* Amount */}
-      <Text>Amount:</Text>
-      <TextInput
+      <LabeledInput
+        label="Amount:"
         value={amount}
         onChangeText={setAmount}
         keyboardType="numeric"
-        style={{
-          borderWidth: 1,
-          padding: 12,
-          marginBottom: 16,
-          borderRadius: 8,
-          borderColor: "#ccc",
-          backgroundColor: "#fff"
-        }}
       />
 
       {/* Convert Button */}
@@ -151,15 +135,15 @@ export default function Main() {
         onPress={handleConvert}
         disabled={loading}
         style={{
-    backgroundColor: loading ? "#999" : "#007bff",
-    paddingVertical: 18,     // ⬅ taller button
-    width: "100%",           // ⬅ full-width button
-    borderRadius: 10,
-    marginTop: 20,
-    alignItems: "center",    // center text
-  }}
+          backgroundColor: loading ? "#999" : "#007bff",
+          paddingVertical: 18,
+          width: "100%",
+          borderRadius: 10,
+          marginTop: 10,
+          alignItems: "center",
+        }}
       >
-        <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
+        <Text style={{ color: "white", fontSize: 18 }}>
           {loading ? "Converting..." : "Convert"}
         </Text>
       </TouchableOpacity>

@@ -18,7 +18,7 @@ export default function About() {
           borderWidth: 2,
           borderColor: "#007bff",
           borderRadius: 12,
-          backgroundColor: "white",
+          backgroundColor: "#e6e6e6",
           shadowColor: "#000",
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.2,

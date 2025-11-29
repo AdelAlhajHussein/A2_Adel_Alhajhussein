@@ -58,6 +58,13 @@ export default function Main() {
     }
 
     const rate = data.data[targetCurrency];
+    if (!rate) {
+  setError(
+    "The selected currency is not supported by the FreeCurrencyAPI free plan. Please try a major currency like CAD, USD, EUR, GBP, etc."
+  );
+  setLoading(false);
+  return;
+  }
     const converted = Number(amount) * rate;
     setLoading(false);
 

@@ -6,13 +6,46 @@ export default function RootLayout() {
     <Stack
       screenOptions={{
         headerTitle: "My App",
+        headerStyle: {
+          backgroundColor: "#007bff",     // top bar color
+        },
+        headerTitleStyle: {
+          color: "white",                 // title color
+        },
         headerRight: () => (
-          <View style={{ flexDirection: "row", gap: 20, marginRight: 10 }}>
-            <Link href="/Main">
-              <Text style={{ fontSize: 16, color: "blue" }}>Main</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              gap: 10,
+              marginRight: 10,
+            }}
+          >
+            <Link
+              href="/Main"
+              style={{
+                backgroundColor: "white",
+                paddingVertical: 6,
+                paddingHorizontal: 12,
+                borderRadius: 8,
+              }}
+            >
+              <Text style={{ color: "#007bff", fontWeight: "600" }}>
+                Main
+              </Text>
             </Link>
-            <Link href="/About">
-              <Text style={{ fontSize: 16, color: "blue" }}>About</Text>
+
+            <Link
+              href="/About"
+              style={{
+                backgroundColor: "white",
+                paddingVertical: 6,
+                paddingHorizontal: 12,
+                borderRadius: 8,
+              }}
+            >
+              <Text style={{ color: "#007bff", fontWeight: "600" }}>
+                About
+              </Text>
             </Link>
           </View>
         ),

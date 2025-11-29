@@ -7,10 +7,10 @@ export default function RootLayout() {
       screenOptions={{
         headerTitle: "My App",
         headerStyle: {
-          backgroundColor: "#007bff",     // top bar color
+          backgroundColor: "#007bff",
         },
         headerTitleStyle: {
-          color: "white",                 // title color
+          color: "white",
         },
         headerRight: () => (
           <View

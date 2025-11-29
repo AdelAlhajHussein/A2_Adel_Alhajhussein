@@ -5,60 +5,53 @@ export default function About() {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#eef2f3",
+        padding: 20,
         justifyContent: "center",
         alignItems: "center",
-        padding: 20,
       }}
     >
+
       <View
         style={{
-          backgroundColor: "white",
-          padding: 25,
-          borderRadius: 15,
           width: "90%",
+          padding: 20,
+          borderWidth: 2,
+          borderColor: "#007bff",
+          borderRadius: 12,
+          backgroundColor: "white",
           shadowColor: "#000",
+          shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.2,
-          shadowRadius: 6,
-          shadowOffset: { width: 0, height: 3 },
-          elevation: 5,
+          shadowRadius: 5,
+          elevation: 5, // Android shadow
         }}
       >
         <Text
           style={{
-            fontSize: 28,
+            fontSize: 24,
             fontWeight: "bold",
             textAlign: "center",
             marginBottom: 15,
-            color: "#333",
           }}
         >
           About This App
         </Text>
 
-        <Text style={{ fontSize: 20, marginBottom: 10, textAlign: "center" }}>
+        <Text style={{ fontSize: 18, marginBottom: 10 }}>
           <Text style={{ fontWeight: "bold" }}>Name:</Text> Adel Alhajhussein
         </Text>
 
-        <Text style={{ fontSize: 20, marginBottom: 20, textAlign: "center" }}>
+        <Text style={{ fontSize: 18, marginBottom: 20 }}>
           <Text style={{ fontWeight: "bold" }}>Student ID:</Text> 101532466
         </Text>
 
-        <Text
-          style={{
-            fontSize: 16,
-            lineHeight: 22,
-            textAlign: "center",
-            color: "#555",
-          }}
-        >
-          This application is a currency converter built with React Native and
-          Expo. It allows users to enter a base currency, target currency, and
-          amount. The app validates input, calls a live exchange rate API, and
-          displays the converted results in a clean and user-friendly
-          interface.
+        <Text style={{ fontSize: 16, lineHeight: 22 }}>
+          This application converts currencies using the FreeCurrencyAPI.  
+          It allows users to enter a base currency, target currency, and amount,  
+          then performs real-time conversion.
         </Text>
       </View>
+
     </View>
   );
 }

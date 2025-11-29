@@ -90,7 +90,7 @@ export default function Main() {
     paddingHorizontal: 10,
   }}
 >
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20, }}>
         Currency Converter
       </Text>
 
@@ -151,11 +151,13 @@ export default function Main() {
         onPress={handleConvert}
         disabled={loading}
         style={{
-          backgroundColor: loading ? "#888" : "#007bff",
-          paddingVertical: 15,
-          borderRadius: 10,
-          marginTop: 10
-        }}
+    backgroundColor: loading ? "#999" : "#007bff",
+    paddingVertical: 18,     // ⬅ taller button
+    width: "100%",           // ⬅ full-width button
+    borderRadius: 10,
+    marginTop: 20,
+    alignItems: "center",    // center text
+  }}
       >
         <Text style={{ color: "white", textAlign: "center", fontSize: 18 }}>
           {loading ? "Converting..." : "Convert"}

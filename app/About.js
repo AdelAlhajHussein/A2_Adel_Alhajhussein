@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import Box from "../components/Box";
+import Box from "../components/Box.js";
 
 export default function About() {
   return (
